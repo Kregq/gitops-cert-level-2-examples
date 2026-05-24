@@ -18,3 +18,11 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jqPathExpressions:
+        - .metadata.annotations.creation
+    - kind: Secret
+      jqPathExpressions:
+        - .data["my-password"]
