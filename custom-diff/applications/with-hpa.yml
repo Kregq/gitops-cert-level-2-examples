@@ -7,18 +7,14 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-
   source:
-    repoURL: https://github.com/codefresh-contrib/gitops-cert-level-2-examples.git
+    repoURL: https://github.com/Kregq/gitops-cert-level-2-examples
     targetRevision: HEAD
     path: ./custom-diff/01-with-hpa
-   
   destination:
     server: https://kubernetes.default.svc
     namespace: example01
-
   # Sync policy
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true  
-   
+      - CreateNamespace=true
